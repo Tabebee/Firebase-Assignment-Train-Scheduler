@@ -30,3 +30,7 @@ th:last-child, td:last-child {
     border: 5px solid #0000ff !important;
     border-radius: 10px;
 }
+
+td {
+    text-align: center;
+}
