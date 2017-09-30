@@ -33,7 +33,19 @@ $(document).ready(function () {
 
     database = firebase.database();
 
-    $("#submitButton").on("click", function () {
+    database.ref("Train-Scheduler-App").on("value", function(snapshot) {
+        newFirebaseData = snapshot.val();
+        console.log(newFirebaseData.trainName);
+        var fireBaseName = trainFirebaseData.trainName;
+        var fireBaseDest = trainFirebaseData.destination;
+        var fireBaseFreq = trainFirebaseData.frequency;
+        $("#table-info").append("<tr><td>" + fireBaseName +"</td><td>" + fireBaseDest + "</td><td>" + fireBaseFreq + "</td>");
+
+    });
+
+    $("#submitButton").on("click", function (event) {
+
+        event.preventDefault();
 
         name = $("#trainNameInput").val();
         destination = $("#destinationInput").val();
@@ -51,7 +63,7 @@ $(document).ready(function () {
         }
 
         //    Put in HTMl Dynamically
-        populateHTML();
+        $("#table-info").append("<tr><td>" + name +"</td><td>" + destination + "</td><td>" + frequency + "</td>");
 
 
 //**********************************************************************************************************************    
@@ -89,7 +101,6 @@ $(document).ready(function () {
         $("#frequencyInput").val("");
     }
 
-    function populateHTML() {
 
 //********************This is not working so trying somthing differenct*************************************************
 
@@ -120,13 +131,6 @@ $(document).ready(function () {
         };
 
         database.ref("Train-Scheduler-App").push(trainFirebaseData);
-
-        var nameFireBase = trainFirebaseData.trainName;
-
-        $("#table-info").append("<tr><td>" + nameFireBase +"</td><td>" + destination + "</td><td>" + frequency + "</td>");
-
-    }
-
 
 });
 
