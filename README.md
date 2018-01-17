@@ -1,6 +1,9 @@
-# Firebase-Assignment-Train-Scheduler
-Firebase Assignment - Train Scheduler (Basic - Recommended)
-Firebase Assignment - Train Scheduler (Basic - Recommended)
+# Firebase-Assignment-Train-Scheduler  
+Firebase Assignment - Train Scheduler (Basic - Recommended)  
+
+<img src="assets/images/1.png" width="700" height="700">
+<img src="assets/images/2.png" width="700" height="700">
+
 
 
 Because that Rock Paper Scissors Game is Too Damn Hard
