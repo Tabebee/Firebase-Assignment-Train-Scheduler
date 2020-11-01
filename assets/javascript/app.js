@@ -52,7 +52,8 @@ $(document).ready(function () {
         firstArrival = $("#firstTrainTimeInput").val().trim();
         frequency = $("#frequencyInput").val().trim();
 
-
+        console.log(trainNameInput, destinationInput, firstTrainTimeInput, frequencyInput);
+        console.log(name, destination, firstArrival, frequency);
 //******************** Military Time Not Working************************************************************************
     // //    Check if value inside is valid. If Valid continue otherwise STOP
     //     if (name === "" || name === null ||
@@ -118,7 +119,7 @@ $(document).ready(function () {
             timeLeft.classList.add("colorRed")
         }
 
-        console.log("Next Arrival: ", newArrival ,"Minutes Away: ", timeLeft)
+        console.log("Next Arrival: ", newArrival ,"Minutes Away: ", timeLeft);
 
         $("#table-info").append("<tr><td>" + snapName +"</td><td>" + snapDest + "</td><td>" + snapFreq + "</td><td>" +
                                     newArrival + "</td><td>" + timeLeft + "</td></tr>");
