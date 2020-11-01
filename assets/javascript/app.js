@@ -113,11 +113,16 @@ $(document).ready(function () {
         var timeLeft = snapFreq - left;
         var newArrival = moment().add(timeLeft , "m").format("HH:mm: A");
 
+        // If almost time, add class to change color
+        if(timeLeft < 5) {
+            timeLeft.classList.add("colorRed")
+        }
+
         $("#table-info").append("<tr><td>" + snapName +"</td><td>" + snapDest + "</td><td>" + snapFreq + "</td><td>" +
                                     newArrival + "</td><td>" + timeLeft + "</td></tr>");
-
-
     });
+
+
 
     function clear() {
         $("#trainNameInput").val("");
