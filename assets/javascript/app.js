@@ -118,6 +118,8 @@ $(document).ready(function () {
             timeLeft.classList.add("colorRed")
         }
 
+        console.log("Next Arrival: ", newArrival ,"Minutes Away: ", timeLeft)
+
         $("#table-info").append("<tr><td>" + snapName +"</td><td>" + snapDest + "</td><td>" + snapFreq + "</td><td>" +
                                     newArrival + "</td><td>" + timeLeft + "</td></tr>");
     });
