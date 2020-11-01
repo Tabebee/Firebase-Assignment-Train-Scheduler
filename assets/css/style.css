@@ -38,3 +38,7 @@ th:last-child, td:last-child {
 td {
     text-align: center;
 }
+
+.colorRed {
+    color: red;
+}
