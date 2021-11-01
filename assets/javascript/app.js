@@ -106,8 +106,8 @@ $(document).ready(function () {
 
         //  Current Time
         var timeIs = moment();
-        //  Convert Time and configure for Future use by pushing firstArrival back 1 year
-        var firstArrivalConverted = moment(snapArrival , "HH:mm A").subtract(1, "years");
+        //  Convert Time and configure
+        var firstArrivalConverted = moment(snapArrival , "HH:mm A");
         //  Calculate now vs First Arrival
         var diff = moment().diff(moment(firstArrivalConverted) , "minutes");
         var left = diff % snapFreq;
@@ -121,6 +121,7 @@ $(document).ready(function () {
         }
 
         console.log("Next Arrival: ", newArrival ,"Minutes Away: ", timeLeft);
+        console.log("stuff ", snapArrival);
 
         $("#table-info").append("<tr><td>" + snapName +"</td><td>" + snapDest + "</td><td>" + snapFreq + "</td><td>" +
                                     newArrival + "</td><td>" + timeLeft + "</td></tr>");
