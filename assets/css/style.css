@@ -42,3 +42,6 @@ td {
 .colorRed {
     color: red;
 }
+#firstTrainTimeInput {
+    width: 100px;
+}
