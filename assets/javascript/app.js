@@ -116,9 +116,9 @@ $(document).ready(function () {
         var newArrival = moment().add(timeLeft , "m").format("HH:mm: A");
 
         // If almost time, add class to change color
-        // if(timeLeft < 5) {
-        //     timeLeft.classList.add("colorRed")
-        // }
+        if(timeLeft < 5) {
+            timeLeft.classList.add("colorRed")
+        }
 
         console.log("Next Arrival: ", newArrival ,"Minutes Away: ", timeLeft);
 
