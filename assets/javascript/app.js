@@ -36,7 +36,8 @@ $(document).ready(function () {
         databaseURL: "https://train-scheduler-assignme-875fb.firebaseio.com",
         projectId: "train-scheduler-assignme-875fb",
         storageBucket: "train-scheduler-assignme-875fb.appspot.com",
-        messagingSenderId: "457471037516"
+        messagingSenderId: "457471037516",
+        appId: "1:457471037516:web:f13ba8426919fc8158a4e9"
     };
     firebase.initializeApp(config);
 
@@ -115,9 +116,9 @@ $(document).ready(function () {
         var newArrival = moment().add(timeLeft , "m").format("HH:mm: A");
 
         // If almost time, add class to change color
-        if(timeLeft < 5) {
-            timeLeft.classList.add("colorRed")
-        }
+        // if(timeLeft < 5) {
+        //     timeLeft.classList.add("colorRed")
+        // }
 
         console.log("Next Arrival: ", newArrival ,"Minutes Away: ", timeLeft);
 
