@@ -52,49 +52,52 @@ $(document).ready(function () {
         destination = $("#destinationInput").val().trim();
         firstArrival = $("#firstTrainTimeInput").val().trim();
         frequency = $("#frequencyInput").val().trim();
+        if (name === '' || destination === '' || firstArrival === '' || frequency === '') {
+            alert("Please ensure all fields are filled out")
+        } else {
 
-        console.log(trainNameInput, destinationInput, firstTrainTimeInput, frequencyInput);
-        console.log(name, destination, firstArrival, frequency);
+
+            console.log(trainNameInput, destinationInput, firstTrainTimeInput, frequencyInput);
+            console.log(name, destination, firstArrival, frequency);
 //******************** Military Time Not Working************************************************************************
-    // //    Check if value inside is valid. If Valid continue otherwise STOP
-    //     if (name === "" || name === null ||
-    //         destination === "" || destination === null ||
-    //         firstArrival === "" || firstArrival === null ||
-    //         frequency === "" || frequency === null || frequency === 0) {
-    //         alert("Please kindly enter a valid response in ALL fields.... OR ELSE" , denied.play());
-    //         return false;
-    //     }
-    //
-    // //    Check if time is in military time and that they are numbers
-    //     if (firstArrival.length != 5 || parseInt(firstArrival.substr(0,2)) > 23 || parseInt(firstArrival.substr(0,2)) < 0 ||
-    //         parseInt(firstArrival.substr(3,2)) > 59 || parseInt(firstArrival.substr(3,2)) < 0) {
-    //         alert("Check Yo Time Format Fool!" , denied.play());
-    //         return false;
-    //     } else if (isNaN(parseInt(firstArrival.substr(0,2))) || isNaN(parseInt(firstArrival.substr(3,2)))) {
-    //         alert("Only Numbers Fool!" , denied.play());
-    //         return false;
-    //     }
-    //
-        console.log(firstArrival);
+            // //    Check if value inside is valid. If Valid continue otherwise STOP
+            //     if (name === "" || name === null ||
+            //         destination === "" || destination === null ||
+            //         firstArrival === "" || firstArrival === null ||
+            //         frequency === "" || frequency === null || frequency === 0) {
+            //         alert("Please kindly enter a valid response in ALL fields.... OR ELSE" , denied.play());
+            //         return false;
+            //     }
+            //
+            // //    Check if time is in military time and that they are numbers
+            //     if (firstArrival.length != 5 || parseInt(firstArrival.substr(0,2)) > 23 || parseInt(firstArrival.substr(0,2)) < 0 ||
+            //         parseInt(firstArrival.substr(3,2)) > 59 || parseInt(firstArrival.substr(3,2)) < 0) {
+            //         alert("Check Yo Time Format Fool!" , denied.play());
+            //         return false;
+            //     } else if (isNaN(parseInt(firstArrival.substr(0,2))) || isNaN(parseInt(firstArrival.substr(3,2)))) {
+            //         alert("Only Numbers Fool!" , denied.play());
+            //         return false;
+            //     }
+            //
+            console.log(firstArrival);
 //**********************************************************************************************************************
 
 
+            //  Link and assign variable for firebase
+            trainFirebaseData = {
+                DatatrainName: name,
+                Datadest: destination,
+                DatafirstArrival: firstArrival,
+                Datafrequency: frequency,
+                TimeStamp: firebase.database.ServerValue.TIMESTAMP
+            };
 
-        //  Link and assign variable for firebase
-        trainFirebaseData = {
-            DatatrainName: name,
-            Datadest: destination,
-            DatafirstArrival: firstArrival,
-            Datafrequency: frequency,
-            TimeStamp: firebase.database.ServerValue.TIMESTAMP
-        };
+            //    Variable for firebase to link train easier
+            database.ref().push(trainFirebaseData);
 
-        //    Variable for firebase to link train easier
-        database.ref().push(trainFirebaseData);
-
-    //  Make sure fields are back to blank after adding a train
-        clear();
-
+            //  Make sure fields are back to blank after adding a train
+            clear();
+        }
     });
 
     database.ref().on("child_added", function (childSnapshot) {
