@@ -5,8 +5,8 @@ body {
 
 .jumbotron {
     text-align: center;
-    background: #0061ff;
-    color: snow;
+    background: darkgreen;
+    color: Yellow;
 }
 
 h1, p {
@@ -31,7 +31,7 @@ th:last-child, td:last-child {
 }
 
 .panel, .jumbotron {
-    border: 5px solid #0000ff !important;
+    border: 5px solid black !important;
     border-radius: 10px;
 }
 
@@ -44,4 +44,20 @@ td {
 }
 #firstTrainTimeInput {
     width: 120px;
+}
+
+.panel-primary {
+    background-color: darkgreen;
+    color: Yellow;
+}
+
+.panel-primary>.panel-heading {
+    background-color: yellow;
+    color: darkgreen;
+}
+
+.btn-primary {
+    background-color: darkgreen;
+    color: yellow;
+    border: 1px solid black;
 }
